@@ -24,6 +24,28 @@ products.store url:prodcucts/store http動詞:post 路由ProductController::clas
 products.edit url:prodcucts/{products}/edit http動詞:get 路由ProductController::class,'edit'
 products.update url:prodcucts/{products} http動詞:patch 路由ProductController::class,'update'
 products.destroy url:prodcucts/{products} http動詞:delete 路由ProductController::class,'ddestroy'
+列出7個Products路由應該有的作用
+products.index
+index方法的作用是顯示資源清單。
+
+products.show
+show方法的作用是顯示指定資源。
+
+products.create
+create方法的作用是顯示用於建立新資源的表單。
+
+products.store
+store方法的作用是將新建立的資源儲存在儲存中。
+
+products.edit
+edit方法的作用是顯示編輯指定資源的表單
+
+products.update
+update方法的作用是更新儲存中的指定資源。
+
+products.destroy
+destroy方法的作用是從儲存中刪除指定的資源。
 */
 Route::resource('Products', ProductController::class);
+
 
