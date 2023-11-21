@@ -46,6 +46,8 @@ update方法的作用是更新儲存中的指定資源。
 products.destroy
 destroy方法的作用是從儲存中刪除指定的資源。
 */
-Route::resource('Products', ProductController::class);
+Route::resource('Products',ProductController::class)->only([
+    'index','show','store','update','destroy'
+]);
 
 
