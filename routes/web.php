@@ -46,8 +46,12 @@ update方法的作用是更新儲存中的指定資源。
 products.destroy
 destroy方法的作用是從儲存中刪除指定的資源。
 */
-Route::resource('Products',ProductController::class)->only([
-    'index','show','store','update','destroy'
-]);
+Route::get('Products',[ProductController::class,'index'])->name("products.index");
+Route::get('Products/{Product}',[ProductController::class,'show'])->name("products.show");
+Route::get('Products/create',[ProductController::class,'create'])->name("products.create");
+Route::post('Products',[ProductController::class,'store'])->name("products.store");
+Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("products.edit");
+Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
+Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
 
 
