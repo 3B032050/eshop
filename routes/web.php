@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -64,6 +65,14 @@ Route::post('CartItems',[CartitemController::class,'store'])->name("cartitems.st
 Route::get('CartItems/{CartItem}/edit',[CartitemController::class,'edit'])->name("cartitems.edit");
 Route::patch('CartItems/{CartItem}',[CartitemController::class,'update'])->name("cartitems.update");
 Route::delete('CartItems/{CartItem}',[CartitemController::class,'destroy'])->name("cartitems.destroy");
+//orders路由
+Route::get('Orders',[OrderController::class,'index'])->name("orders.index");
+Route::get('Orders/{Order}',[OrderController::class,'show'])->name("orders.show");
+Route::get('Orders/create',[OrderController::class,'create'])->name("orders.create");
+Route::post('Orders',[OrderController::class,'store'])->name("orders.store");
+Route::get('Orders/{Order}/edit',[OrderController::class,'edit'])->name("orders.edit");
+Route::patch('Orders/{Order}',[OrderController::class,'update'])->name("orders.update");
+Route::delete('Orders/{Order}',[OrderController::class,'destroy'])->name("orders.destroy");
 /*
 Route::resource('Products',ProductController::class)->only([
     'index','show','store','update','destroy'
