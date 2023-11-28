@@ -7,6 +7,7 @@ use App\Models\CartItem;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -45,9 +46,16 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show($order)
     {
-        //
+
+        $orderitems = OrderItem::orderBy('id', 'DESC')->where('order_id',$order)->get();
+
+        $data = [
+            'orderitems' => $orderitems,
+        ];
+
+        return view('orders.show', $data);
     }
 
     /**
