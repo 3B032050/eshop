@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -47,6 +48,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//product路由
 Route::get('Products',[ProductController::class,'index'])->name("products.index");
 Route::get('Products/{Product}',[ProductController::class,'show'])->name("products.show");
 Route::get('Products/create',[ProductController::class,'create'])->name("products.create");
@@ -54,6 +56,14 @@ Route::post('Products',[ProductController::class,'store'])->name("products.store
 Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("products.edit");
 Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
 Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
+//cart_items路由
+Route::get('CartItems',[CartitemController::class,'index'])->name("cartitems.index");
+Route::get('CartItems/{CartItem}',[CartitemController::class,'show'])->name("cartitems.show");
+Route::get('CartItems/create',[CartitemController::class,'create'])->name("cartitems.create");
+Route::post('CartItems',[CartitemController::class,'store'])->name("cartitems.store");
+Route::get('CartItems/{CartItem}/edit',[CartitemController::class,'edit'])->name("cartitems.edit");
+Route::patch('CartItems/{CartItem}',[CartitemController::class,'update'])->name("cartitems.update");
+Route::delete('CartItems/{CartItem}',[CartitemController::class,'destroy'])->name("cartitems.destroy");
 /*
 Route::resource('Products',ProductController::class)->only([
     'index','show','store','update','destroy'
