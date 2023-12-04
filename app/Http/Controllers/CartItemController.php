@@ -13,6 +13,7 @@ class CartItemController extends Controller
      */
     public function index()
     {
+        /*
         $user_id = Auth::id();
         $cartitems = CartItem::orderBy('id', 'DESC')->where('user_id',$user_id)->get();
 
@@ -20,6 +21,12 @@ class CartItemController extends Controller
             'cartitems' => $cartitems,
         ];
 
+        return view('cart_items.index', $data);
+        */
+        $cartItems = auth()->user()->CartItems;
+        $data = [
+            'cartItems'=>$cartItems,
+        ];
         return view('cart_items.index', $data);
     }
 

@@ -58,7 +58,7 @@ Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("p
 Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
 Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
 //cart_items路由
-Route::get('CartItems',[CartitemController::class,'index'])->name("cartitems.index");
+Route::get('CartItems',[CartitemController::class,'index'])->name("cart_items.index");
 Route::get('CartItems/{CartItem}',[CartitemController::class,'show'])->name("cartitems.show");
 Route::get('CartItems/create',[CartitemController::class,'create'])->name("cartitems.create");
 Route::post('CartItems',[CartitemController::class,'store'])->name("cartitems.store");
